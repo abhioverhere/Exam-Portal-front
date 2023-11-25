@@ -1,0 +1,17 @@
+.log{
+    justify-content: center;
+    margin-left: 3.5%;
+    margin-right: 3.5%;    
+}
+
+.login{
+    text-align: left;
+    margin-top: 8%;
+}
+.announce h2{
+    font-size: 200%;
+}
+.announce li{
+    font-size: 150%;
+    font-style: italic;
+}
