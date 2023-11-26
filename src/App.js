@@ -13,7 +13,7 @@ import Help from './components/Help.jsx';
 import RegForm from './components/Form.jsx';
 import { Logout } from './Logout.js';
 import { Requireauth } from './Auth.js';
-import './App.css';
+
 
 function App() {
   return (

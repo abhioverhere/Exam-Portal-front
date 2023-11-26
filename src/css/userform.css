@@ -1,0 +1,24 @@
+.batchlist{
+    text-align: center;
+    margin-left: 35%;
+    margin-top: 2%;
+  }
+  .box{ 
+    background-color:rgb(218, 237, 245);
+    float:rleft;
+    margin-top: 60px;
+    margin-left: 200px;
+    margin-right: 200px;
+  
+    padding:10px;
+    height:12em;
+  }
+  .dropdownbutton{
+    width:100%;
+    height: 55px;
+    font-size: 15px;
+    border: width 0.5em ;
+    border-color: #c4c7ce;
+    border-radius: 0.3em;  
+   
+  }
