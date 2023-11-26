@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import axiosInst from '../AxiosInst';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button} from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import axiosInst from '../AxiosInst';
 import '../css/list.css'
+
 const List = () => {
   const[data, setData]= useState([]); 
   const navigate= useNavigate()

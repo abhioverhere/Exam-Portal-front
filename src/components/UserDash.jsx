@@ -1,10 +1,12 @@
-import { Button, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react'
+import { Button, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import '../css/userdash.css'
 
 const UserDash = () => {
-    const[status,setStatus]=useState(false);
-    const[tick, setTick] = useState(false);
+    // const[status,setStatus]=useState(false);
+    const[showtick, setShowTick] = useState(false);
     const[showbtn, setShowbtn] = useState(true);
     const[display,setDisplay]=useState('');
     const userName = sessionStorage.getItem('userName');
@@ -13,10 +15,10 @@ const UserDash = () => {
 
     const checkReg = ()=>{
         if (regStatus === 'true'){
-            setStatus(true);
+            // setStatus(true);
             setDisplay('Registered')
+            setShowTick(true)
             setShowbtn(false)
-            setTick(true)
         }else{
             setDisplay('Not Registered')            
         }
@@ -37,24 +39,28 @@ const UserDash = () => {
 return (
     <div>
         <div>
-          <h3 style={{fontFamily:'serif',fontSize:'40px'}}>Welcome, {userName} !! </h3>
+          <h3 style={{fontSize:'40px'}} className='userWelcome'>Welcome, {userName} !! </h3>
         </div> 
         <Grid container spacing={2}>
-            <Grid item xs={12} sm={6} md={6}>
+            <Grid item xs={12} sm={2} md={2}></Grid>
+            <Grid item xs={12} sm={4} md={4} className='displayBox'>
                 <div className='box' > 
-                    <p style={{fontSize:'20px',fontFamily:'serif'}}>You are eligible to register for the exit exam</p>
-                    <br/>                    
+                    <p>You are eligible to register for the exit exam</p>
+                    <TaskAltIcon className='tick' sx={{ fontSize:'75px', color:'green' }}/>                   
                 </div>
             </Grid>
-            <Grid item xs={12} sm={6} md={6}>
+            <Grid item xs={12} sm={4} md={4} className='displayBox' >
                 <div className='box' >
-                    <p style={{fontSize:'20px',fontFamily:'serif'}}>REGISTRATION STATUS:</p>
-                    <p style={{fontSize:'20px',fontFamily:'serif'}}>{display}</p>
+                    <p>REGISTRATION STATUS:<br /><br />{display}</p><br /><br />
                     {showbtn && (
                         <Button variant="contained" color="primary" onClick={handleClick}>Register Here</Button>
                         )}
+                    {showtick && (
+                        <TaskAltIcon className='tick' sx={{ fontSize:'75px', color:'green'}}/>
+                        )}
                 </div> 
             </Grid>
+            <Grid item xs={12} sm={2} md={2}></Grid>
         </Grid>
     </div>
   )
