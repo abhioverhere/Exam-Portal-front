@@ -40,9 +40,10 @@ const Form = (props) => {
 
     const validateForm = () => {
       const formErrors = {};
-      if (!formData.firstName.trim()) { formErrors.firstName = 'First Name is a required field';}
-      if (!formData.lastName.trim()) { formErrors.lastName = 'Last Name is a required field';}
-      if (!formData.phone.trim()) { formErrors.phone = 'Phone is a required field';}
+      if (!formData.firstName.trim()) {formErrors.firstName = 'First Name is a required field';}
+      if (!formData.lastName.trim()) {formErrors.lastName = 'Last Name is a required field';}
+      if (!formData.phone.trim()) {formErrors.phone = 'Phone is a required field';}
+      else if (!/^\d{1,10}$/.test(formData.phone)){formErrors.phone = 'Invalid Phone Number. Input a 10 digit Mobile number or a 11 digit Landline Number (with 4 digit STD code) with no spaces or breaks. ';}
       if (!formData.dob.trim()) { formErrors.dob = 'Date of Birth is a required field';}
       else if (!/^\d{2}\/\d{2}\/\d{4}$/.test(formData.dob)) {formErrors.dob = 'Date of Birth is to be entered in DD/MM/YYYY format';}
       if (!formData.formMail.trim()) { formErrors.formMail = 'E-Mail is a required field';}
@@ -57,6 +58,7 @@ const Form = (props) => {
       ...formData,
       [e.target.name]: e.target.value,
       });
+      validateForm()
     };
 
     const handleSubmit = (e) => {
@@ -239,7 +241,7 @@ return (
             </Grid>
         </form>)}
         {showMsg &&(<div className="redirect">
-            <h1>You have already completed your registration. Redirecting back to profile page...</h1>
+            <h1>You have completed your registration. Redirecting back to profile page...</h1>
         </div>)}
 
     </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axiosInst from '../AxiosInst';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button} from '@mui/material';
+import '../css/list.css'
 
 const List = () => {
   const[data, setData]= useState([]); 
@@ -34,6 +35,7 @@ const List = () => {
           <Table className='table'>
             <TableHead>
               <TableRow>
+                <TableCell align="center" className='tableCell'>S.No.</TableCell>
                 <TableCell align="center" className='tableCell'>Name</TableCell>
                 <TableCell align="center" className='tableCell'>E Mail</TableCell>
                 <TableCell align="center" className='tableCell'>Phone</TableCell>
@@ -42,7 +44,8 @@ const List = () => {
             <TableBody>
               {data.map((val,i) => (
                 <TableRow key={i} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                  <TableCell align="center" className='tableCell'>{val.firstName}{' '}{val.lastName}</TableCell>
+                  <TableCell align="center" className='tableCell'>{i + 1}</TableCell>
+                  <TableCell align="left" className='tableCell'>{val.firstName}{' '}{val.lastName}</TableCell>
                   <TableCell align="center" className='tableCell' style={{fontStyle:'italic'}}>{val.formMail}</TableCell>
                   <TableCell align="center" className='tableCell'>{val.phone}</TableCell>
                 </TableRow>
