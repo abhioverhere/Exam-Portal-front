@@ -55,24 +55,25 @@ const Login = () => {
     }}
         
   return (
-      <Grid container spacing={1} className='log'>
-            <Grid item xs={8} sm={8} md={8} lg={8} xl={8} className='logger'>
+      <Grid container spacing={2} className='log' direction='row-reverse' alignItems="center" justifyContent="center" marginTop='5.5%' padding={'0% 5% 5% 5%'}>
+            <Grid item xs={12} sm={12} md={3} lg={3} xl={3} id='loginGrid'>
+                <form className='login'>
+                  <Typography variant='h3' id='head'>Log In</Typography><br />
+                  <TextField label="E-Mail" variant="outlined" fullWidth onChange={inputHandler} name='email' error={Boolean(errors.email)} helperText={errors.email}/><br /><br />
+                  <TextField label="Password" variant="outlined" fullWidth type="password" onChange={inputHandler} name='password' error={Boolean(errors.password)} helperText={errors.password}/><br /><br />
+                  <Button variant='contained' className='logbtn' onClick={addHandler}>Log In</Button>
+                </form>
+            </Grid>
+            <Grid item xs={12} sm={12} md={8} lg={8} xl={8} alignItems="center" id='announceGrid'>
                 <div className="announce">
                     <h2>Announcements</h2>                    
                         <ul>
                             <li>Announcement 1</li>
                             <li>Announcement 2</li>
                             <li>Announcement 3</li>
+                            <li>Announcement 4</li>                            
                         </ul>                    
                 </div>
-            </Grid>
-            <Grid item xs={2} sm={2} md={2} lg={2} xl={2} className='logger'>
-                <form className='login'>
-                  <Typography variant='h3' id='head'>Log In</Typography><br /><br />
-                  <TextField label="E-Mail" variant="outlined" onChange={inputHandler} name='email' error={Boolean(errors.email)} helperText={errors.email}/><br /><br />
-                  <TextField label="Password" variant="outlined" type="password" onChange={inputHandler} name='password' error={Boolean(errors.password)} helperText={errors.password}/><br /><br />
-                  <Button variant='contained' className='logbtn' onClick={addHandler}>Log In</Button>
-                </form>
             </Grid>
     </Grid>
   )

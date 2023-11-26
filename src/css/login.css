@@ -1,17 +1,35 @@
-.log{
-    justify-content: center;
-    margin-left: 3.5%;
-    margin-right: 3.5%;    
+@media screen and (max-width:765px){
+    /* Small Screens */
+    .log{
+        flex-direction: row;
+        text-align: center;
+        margin-right: 3.5%;   
+        margin-left: 3.5%;
+        /* margin-top: 10%; */
+    }       
+    .announce h2{
+        font-size: 200%;
+    }
+    .announce li{
+        font-size: 150%;
+        font-style: italic;
+    }
+    
+}
+@media screen and (min-width:765px){
+    /* Larger Screens */
+    
+    .login{
+        text-align: left;
+    }
+    
+    .announce h2{
+        font-size: 200%;
+    }
+    .announce li{
+        font-size: 150%;
+        font-style: italic;
+    }
+    
 }
 
-.login{
-    text-align: left;
-    margin-top: 8%;
-}
-.announce h2{
-    font-size: 200%;
-}
-.announce li{
-    font-size: 150%;
-    font-style: italic;
-}

@@ -7,18 +7,18 @@ const Form = (props) => {
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
     const [showForm,setShowForm] = useState(false);
-    const [showMsg,setShowMsg] = useState(true);
+    const [showMsg,setShowMsg] = useState(false);
     const [redirect,setRedirect] = useState(false);
     const userInfo = sessionStorage.getItem('userName')
     const regStatus = sessionStorage.getItem('regStatus')
 
     const loadCheck = () =>{
-        if (regStatus === 'true'){            
+        if (regStatus === 'true'){ 
+            setShowMsg(true)            
             setTimeout(() => {                
                 setRedirect(true);
-              }, 5000)            
-        }else{
-            setShowMsg(false)                     
+              }, 3000)            
+        }else{                                 
             setShowForm(true)                     
         }
     }
@@ -239,7 +239,7 @@ return (
             </Grid>
         </form>)}
         {showMsg &&(<div className="redirect">
-            <h1>You have already completed your registration. Redirecting back to profile page.</h1>
+            <h1>You have already completed your registration. Redirecting back to profile page...</h1>
         </div>)}
 
     </div>
