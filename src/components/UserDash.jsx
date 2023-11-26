@@ -45,7 +45,7 @@ return (
             <Grid item xs={12} sm={2} md={2}></Grid>
             <Grid item xs={12} sm={4} md={4} className='displayBox'>
                 <div className='box' > 
-                    <p>You are eligible to register for the exit exam</p>
+                    <p>You are eligible to register for the exit exam</p><br /><br /><br/>
                     <TaskAltIcon className='tick' sx={{ fontSize:'75px', color:'green' }}/>                   
                 </div>
             </Grid>
