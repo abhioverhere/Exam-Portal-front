@@ -6,9 +6,9 @@ import '../css/login.css'
 
 const Login = () => {
 
-    const [user, setUser] = useState({ email: '',password: '' });
-    const navigate=useNavigate();
+    const [user, setUser] = useState({ email: '', password: '' });
     const [errors, setErrors] = useState({});
+    const navigate=useNavigate();
     const inputHandler = (e) =>{
         setUser({...user,[e.target.name]:e.target.value})
         setErrors({ ...errors, [e.target.name]: '' });
@@ -30,28 +30,29 @@ const Login = () => {
         if (validateLog()) {
         axiosInst.post('http://localhost:4000/user/login',user).then((res)=>{
           console.log('Login response:', res.data);
-          if (res.data.message === 'Login Success') {
+          if (res.data.message === 'success-user') {
             sessionStorage.setItem("userToken", res.data.token);
             sessionStorage.setItem("userName", res.data.userName);
-            sessionStorage.setItem("regStatus", res.data.regStatus);
-            if (user.email === 'admin@gmail.com') {
-              navigate('/admindash');
-            } else {
-              navigate('/userdash');
-            }
-        }
-    })
-    
+            sessionStorage.setItem("regStatus", res.data.regStatus);        
+            navigate('/userdash');            
+          }else if(res.data.message === 'success-admin'){
+            sessionStorage.setItem("adminToken", res.data.token);
+            navigate('/admindash');
+          }          
+    })    
     .catch((error) => {
         if (error.response && error.response.status === 401) {
             alert('Invalid credentials. Please try again.');
-            setUser({ email: '', password: '' });
-        } else {
-            console.error('Error during login:', error);
+            console.log('Before:', user)
+            setUser({ email: ' ', password: ' ' });
+            console.log('After:', user)
+        } else {            
             alert('An error occurred. Please try again later.');
-            setUser({ email: '', password: '' });
+            console.log('Before:', user)
+            setUser({ email: ' ', password: ' ' });   
+            console.log('After:', user)
         }});
-        console.log(user)
+        
     }}
         
   return (
