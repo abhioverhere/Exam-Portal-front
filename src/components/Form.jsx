@@ -113,9 +113,9 @@ const Form = (props) => {
           
 return (
               
-    <div style={{marginTop:'3%' , marginLeft:'10%', marginRight:'10%'}} autoComplete="off">
+    <div style={{marginTop:'3%' , marginLeft:'10%', marginRight:'10%', padding:'0.5% 2.5% 3.5% 2.5%',backgroundColor:'rgb(255,255,255,0.65)', borderRadius:'20px'}} autoComplete="off">
         {showForm &&(<div className="formHead">
-            <h2>Registration Form</h2>
+            <h2 style={{color:'#6c6464'}}>Registration Form</h2>
         </div>)}
         {showForm &&(
         <form>
@@ -237,7 +237,7 @@ return (
                 <Grid item xs={12} sm={4} md={4}></Grid>
 
                 <Grid item xs={12} sm={4} md={4} >
-                   <Button variant="contained" color='primary' fullWidth onClick={handleSubmit}>Submit Form</Button>
+                   <Button variant="contained" style={{backgroundColor:'#123D6BFF', borderRadius:'15px'}} fullWidth onClick={handleSubmit}>Submit Form</Button>
                 </Grid>
             </Grid>
         </form>)}

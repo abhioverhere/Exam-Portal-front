@@ -12,13 +12,13 @@ const AdminNav = () => {
   }));
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static"  style={{backgroundColor:'#9c8a7d'}}>
         <StyledToolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to={'/admindash'} style={{textDecoration:'none', color:'white'}}>Test Admin Portal</Link>
+            <Link to={'/admindash'} style={{textDecoration:'none', color:'white', fontFamily:'serif'}} >Test Admin Portal</Link>
           </Typography>
-          <Button color="inherit"><Link to={'/batches'} style={{textDecoration:'none', color:'white'}}>Batches</Link></Button>
-          <Button color="inherit"><Link to={'/logout'} style={{textDecoration:'none', color:'white'}}>Logout</Link></Button>
+          <Button color="inherit"><Link to={'/batches'} style={{textDecoration:'none', color:'white', fontFamily:'serif'}}>Batches</Link></Button>
+          <Button color="inherit"><Link to={'/logout'} style={{textDecoration:'none', color:'white', fontFamily:'serif'}}>Logout</Link></Button>
         </StyledToolbar>
       </AppBar>
     </Box>

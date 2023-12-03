@@ -4,8 +4,11 @@ const axiosInst=axios.create({
 })
 axiosInst.interceptors.request.use((config)=>{
     const accessToken=sessionStorage.getItem("userToken");
+    const accessAdminToken=sessionStorage.getItem("adminToken");
     if(accessToken){
         if(config) config.headers.token=accessToken;
+    }else if(accessAdminToken){
+        if(config) config.headers.token=accessAdminToken;
     }
     return config;
 },

@@ -12,11 +12,11 @@ const UserNavMain = () => {
   }));
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static"  style={{backgroundColor:'#9c8a7d'}}>
         <StyledToolbar>        
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>ICT Exam Portal</Typography>          
-          <Button color="inherit"><Link to={'/help'} style={{textDecoration:'none',color:'white'}}>Help</Link></Button>
-          <Button color="inherit"><Link to={'/logout'} style={{textDecoration:'none', color:'white'}}>Logout</Link></Button>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily:'serif'}}>ICT Exam Portal</Typography>          
+          <Button color="inherit"><Link to={'/help'} style={{textDecoration:'none',color:'white', fontFamily:'serif'}}>Help</Link></Button>
+          <Button color="inherit"><Link to={'/logout'} style={{textDecoration:'none', color:'white', fontFamily:'serif'}}>Logout</Link></Button>
         </StyledToolbar>
       </AppBar>
     </Box>

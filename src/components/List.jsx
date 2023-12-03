@@ -12,8 +12,7 @@ const List = () => {
   useEffect(()=>{
     axiosInst.post(`http://localhost:4000/user/batch/${batch}`)
     .then(res=>setData(res.data))    
-    .catch(err=>console.log(err))}); 
-
+    .catch(err=>console.log(err))});
     const upload = ()=>{
       navigate('/upload')
     }
@@ -26,7 +25,7 @@ const List = () => {
         </Grid>
         <Grid item xs={4} sm={4} md={4} lg={4} xl={4} >
           <div className="result">
-            <Button onClick={upload} variant="contained" endIcon={<SendIcon />} >Send Result</Button>
+            <Button onClick={upload} style={{backgroundColor:'#123D6BFF', borderRadius:'15px'}} variant="contained" endIcon={<SendIcon />} >Send Result</Button>
           </div>
         </Grid>
       </Grid>
@@ -35,7 +34,6 @@ const List = () => {
           <Table className='table'>
             <TableHead>
               <TableRow>
-                <TableCell align="center" className='tableHead'></TableCell>
                 <TableCell align="center" className='tableHead'>S.No.</TableCell>
                 <TableCell align="center" className='tableHead'>Name</TableCell>
                 <TableCell align="center" className='tableHead'>E Mail</TableCell>
@@ -45,7 +43,6 @@ const List = () => {
             <TableBody>
               {data.map((val,i) => (
                 <TableRow key={i} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                  <TableCell align="center" className='tableCell'></TableCell>
                   <TableCell align="center" className='tableCell'>{i + 1}</TableCell>
                   <TableCell align="left" className='tableCell'>{val.firstName}{' '}{val.lastName}</TableCell>
                   <TableCell align="center" className='tableCell' style={{fontStyle:'italic'}}>{val.formMail}</TableCell>

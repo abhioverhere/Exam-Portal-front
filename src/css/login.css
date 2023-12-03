@@ -2,34 +2,76 @@
     /* Small Screens */
     .log{
         flex-direction: row;
-        text-align: center;
+        /* text-align: center; */
         margin-right: 3.5%;   
         margin-left: 3.5%;
         /* margin-top: 10%; */
     }       
-    .announce h2{
-        font-size: 200%;
-    }
-    .announce li{
-        font-size: 150%;
-        font-style: italic;
-    }
-    
-}
-@media screen and (min-width:765px){
-    /* Larger Screens */
+    .logSub{
+        margin-right: 3.5%;   
+        margin-left: 3.5%;
+        border-radius: 30px;
+    }      
     
     .login{
         text-align: left;
+        color: rgba(255, 254, 254, 0.911);
+    }    
+    #logHead{
+        font-family:Georgia, 'Times New Roman', Times, serif;
     }
-    
     .announce h2{
-        font-size: 200%;
+        font-size: 180%;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: rgba(255, 254, 254, 0.911);
     }
     .announce li{
-        font-size: 150%;
+        font-size: 120%;
         font-style: italic;
-    }
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: rgba(255, 254, 254, 0.911);
+    } 
     
 }
+@media screen and (min-width:765px){
+    /* Larger Screens */    
+    .logSub{
+       
+        margin-right: 3.5%; 
+        margin-left: 3.5%;
+        border-radius: 30px;
+    }
+    .login{
+        text-align: left;
+        color: rgba(255, 254, 254, 0.911);
+    }    
+    #logHead{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .announce h3{
+        font-size: 280%;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: rgba(255, 254, 254, 0.911);
+    }
+    .announce li{
+        font-size: 135%;
+        font-style: italic;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        color: rgba(255, 254, 254, 0.911);
+    }
+}
 
+body{
+    background-image: url('..//assets/bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    backdrop-filter: blur(2px);
+}
+#loginGrid h3{
+    margin-top: 15%;
+}

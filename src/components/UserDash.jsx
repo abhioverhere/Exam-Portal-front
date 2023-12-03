@@ -5,7 +5,6 @@ import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import '../css/userdash.css'
 
 const UserDash = () => {
-    // const[status,setStatus]=useState(false);
     const[showtick, setShowTick] = useState(false);
     const[showbtn, setShowbtn] = useState(true);
     const[display,setDisplay]=useState('');
@@ -15,7 +14,6 @@ const UserDash = () => {
 
     const checkReg = ()=>{
         if (regStatus === 'true'){
-            // setStatus(true);
             setDisplay('Registered')
             setShowTick(true)
             setShowbtn(false)
@@ -39,7 +37,7 @@ const UserDash = () => {
 return (
     <div>
         <div>
-          <h3 style={{fontSize:'40px'}} className='userWelcome'>Welcome, {userName} !! </h3>
+          <h3 style={{fontSize:'40px', color:'white'}} className='userWelcome'>Welcome, {userName} !! </h3>
         </div> 
         <Grid container spacing={2}>
             <Grid item xs={12} sm={2} md={2}></Grid>
@@ -53,10 +51,10 @@ return (
                 <div className='box' >
                     <p>REGISTRATION STATUS:<br /><br />{display}</p><br /><br />
                     {showbtn && (
-                        <Button variant="contained" color="primary" onClick={handleClick}>Register Here</Button>
+                        <Button variant="contained" style={{backgroundColor:'#123D6BFF', borderRadius:'15px'}} onClick={handleClick}>Register Here</Button>
                         )}
                     {showtick && (
-                        <TaskAltIcon className='tick' sx={{ fontSize:'75px', color:'green'}}/>
+                        <TaskAltIcon className='tick' sx={{ fontSize:'75px', color:'#86E835'}}/>
                         )}
                 </div> 
             </Grid>
