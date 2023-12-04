@@ -10,7 +10,7 @@ const List = () => {
   const navigate= useNavigate()
   const batch = localStorage.getItem('batch');
   useEffect(()=>{
-    axiosInst.post(`http://localhost:4000/user/batch/${batch}`)
+    axiosInst.post(`http://localhost:4000/admin/batch/${batch}`)
     .then(res=>setData(res.data))    
     .catch(err=>console.log(err))});
     const upload = ()=>{
