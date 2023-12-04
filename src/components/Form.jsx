@@ -29,7 +29,7 @@ const Form = (props) => {
     })
 
     const [formData, setFormData] = useState({
-        firstName: props.data ? props.data.name : '',
+        firstName: props.data ? props.data.firstName : '',
         middleName: props.data ? props.data.middleName : '',
         lastName: props.data ? props.data.lastName : '',
         phone: props.data ? props.data.phone : '',
@@ -131,7 +131,7 @@ return (
                         value={formData.firstName}
                         onChange={handleChange}
                         error={Boolean(errors.firstName)}
-                        helperText={errors.name}/>
+                        helperText={errors.firstName}/>
                 </Grid>
 
                 <Grid item xs={12} sm={4} md={4}>
