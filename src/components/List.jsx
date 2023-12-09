@@ -4,18 +4,26 @@ import { Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
 import SendIcon from '@mui/icons-material/Send';
 import axiosInst from '../AxiosInst';
 import '../css/list.css'
-
+// The component uses the useState and useEffect hooks from React.
+//  initializes the data state variable with an empty array using useState([]). This state will be used to store data retrieved from an API.
+// uses the useNavigate hook from the react-router-dom library to get a function for navigating to different pages.
 const List = () => {
   const[data, setData]= useState([]); 
   const navigate= useNavigate()
   const batch = localStorage.getItem('batch');
+  // The useEffect hook is used to fetch data when the component mounts. It sends a POST request to http://localhost:4000/admin/batch/${batch} using Axios.
+// The retrieved data is then stored in the data state using the setData function.
   useEffect(()=>{
     axiosInst.post(`http://localhost:4000/admin/batch/${batch}`)
     .then(res=>setData(res.data))    
     .catch(err=>console.log(err))});
     const upload = ()=>{
       navigate('/upload')
+      // The upload function is defined, which uses the navigate function to navigate to the '/upload' page when called.
     }
+    //  component renders a UI layout using Material-UI's Grid, TableContainer, Table, and related components.
+   // It displays a heading indicating "Registered Candidates - {batch}" and a button labeled "Send Result" with specific styling.
+  //  The main content is a table with headers for "S.No.", "Name", "E Mail", and "Phone".
 
   return (
     <Grid>
@@ -48,6 +56,7 @@ const List = () => {
                   <TableCell align="center" className='tableCell' style={{fontStyle:'italic'}}>{val.formMail}</TableCell>
                   <TableCell align="center" className='tableCell'>{val.phone}</TableCell>
                 </TableRow>
+                // Inline styles and classes are used for styling various elements, such as setting background colors, border radius, and margins.
               ))}
             </TableBody>
           </Table>

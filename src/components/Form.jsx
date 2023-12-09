@@ -4,6 +4,8 @@ import { Button, Grid, MenuItem, TextField } from '@mui/material'
 import axiosInst from '../AxiosInst';
 import '../css/userform.css'
 
+// The component uses the useState hook to manage various state variables, including errors, showForm, showMsg, and redirect.
+// userInfo and regStatus are retrieved from session storage.
 const Form = (props) => {
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
@@ -12,7 +14,9 @@ const Form = (props) => {
     const [redirect,setRedirect] = useState(false);
     const userInfo = sessionStorage.getItem('userName')
     const regStatus = sessionStorage.getItem('regStatus')
-
+// The loadCheck function is called on component mount.
+// If regStatus is 'true', it shows a registration completion message (showMsg) and sets a timer to redirect to the user dashboard after 3 seconds.
+// If regStatus is not 'true', it sets showForm to true, displaying the registration form.
     const loadCheck = () =>{
         if (regStatus === 'true'){ 
             setShowMsg(true)            
@@ -39,6 +43,8 @@ const Form = (props) => {
         gender: props.data ? props.data.gender : '',
     });
 
+    // The validateForm function checks for errors in the form data and sets them in the errors state.
+// Error messages are displayed for each form field if validation fails.
     const validateForm = () => {
       const formErrors = {};
       if (!formData.firstName.trim()) {formErrors.firstName = 'First Name is a required field';}
@@ -61,7 +67,9 @@ const Form = (props) => {
       });
       validateForm()
     };
-
+// The handleSubmit function is called when the user submits the form.
+// It validates the form data using validateForm.
+// Upon successful submission, it displays an alert and redirects the user to the user dashboard.
     const handleSubmit = (e) => {
       e.preventDefault();
       if(validateForm()){
@@ -77,7 +85,7 @@ const Form = (props) => {
       }        
     };
     
-
+// The form includes dropdown menus for selecting the batch and gender.
     const batches=[
         {   value:'CSA',
             label:'KKEM March CSA',
@@ -95,7 +103,7 @@ const Form = (props) => {
             label:'KKEM March ST',
         }
     ];
-        
+    // Gender options are mapped from another array (genders).    
     const genders=[
         {   value:'Male',
             label:'Male',
@@ -112,7 +120,7 @@ const Form = (props) => {
     ]
           
 return (
-              
+    //The form uses Material-UI components such as Grid, TextField, Button, and MenuItem for styling and user interaction.          
     <div style={{marginTop:'3%' , marginLeft:'10%', marginRight:'10%', padding:'0.5% 2.5% 3.5% 2.5%',backgroundColor:'rgb(255,255,255,0.65)', borderRadius:'20px'}} autoComplete="off">
         {showForm &&(<div className="formHead">
             <h2 style={{color:'#6c6464'}}>Registration Form</h2>
@@ -244,7 +252,7 @@ return (
         {showMsg &&(<div className="redirect">
             <h1>You have completed your registration. Redirecting back to profile page...</h1>
         </div>)}
-
+{/* The form, registration completion message, or redirection message is conditionally rendered based on the state variables (showForm, showMsg, and redirect). */}
     </div>
   )
 }

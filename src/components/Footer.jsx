@@ -8,6 +8,8 @@ const Footer = () => {
     <Grid container padding='3% 5% 5% 5%' style={{backgroundColor:'#6c6c65'}}>                
             <Grid container>
                 <Grid item xs={12} sm={6} md={6} lg={3} xl={3} padding='2.5%'>
+                    {/* The footer is divided into several sections, each representing a region or category. */}
+                    {/* Each section contains contact information for a specific region or purpose, such as head office, central region, north region, and support. */}
                     <Typography variant="h6" class='footDivHead'>HEAD OFFICE</Typography>
                     <Typography class='footDiv'>ICT Academy of Kerala <br />
                                 L-9, Thejaswini Building, <br />
@@ -48,6 +50,7 @@ const Footer = () => {
                             <img src={logo} class='ictLogo' alt='ict-logo-192'/>
                         </Grid>
                         <Grid item xs={8} sm={8} md={8} lg={8} xl={8} margin='0% 0% 0% 0%'>
+                            {/* The footer includes the ICT Academy of Kerala logo (loaded from an image file, presumably named logo) and the company name. */}
                             <Typography variant="h5" id='ictTextLogo-up' marginTop='2.5%'>
                                     INFORMATION & <br />
                                     COMMUNICATION TECHNOLOGY <br />
@@ -58,7 +61,8 @@ const Footer = () => {
                     </Grid>
                 </Grid>
                 <Grid item xs={11} sm={11} md={12} lg={6} xl={6} padding='2.5%'>
-                    <Typography variant="h6">About Us</Typography>                    
+                    <Typography variant="h6">About Us</Typography> 
+                    {/* section provides information about ICT Academy of Kerala.  */}                   
                     <Typography>ICT Academy of Kerala is a Social Enterprise created in a Public Private Partnership model (PPP) for imparting ICT skills to the youths of Kerala and improve their employability opportunities in the Industry. The Company is supported by Govt. of India , partnered by Govt. of Kerala and the IT industry.</Typography>
                 </Grid>
             </Grid>

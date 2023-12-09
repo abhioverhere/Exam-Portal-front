@@ -4,18 +4,22 @@ import { Button, Card, CardContent, CardMedia, Grid, Typography } from '@mui/mat
 import'../css/batches.css'
 
 
-
+// used to get the navigation function.
 const AdminDash = () => {
   const navigate =useNavigate();
-
+//  function is defined to handle the click event on batch cards.
   const handleClick =(batch)=>{
     localStorage.setItem('batch', batch)
     console.log(batch)
     navigate('/list')
   }
-  const items=['CSA','DSA','ML-AI','FSD','ST','Unregistered']
+  // An array named items contains batch names ('CSA', 'DSA', 'ML-AI', 'FSD', 'ST', 'Unregistered').
+  const items=['CSA','DSA','ML-AI','FSD','ST','DM']
   const batchDisplay= 'KKEM March: '
-
+  
+    // Material-UI components such as Grid, Card, CardMedia, CardContent, Typography, and Button are used for layout and displaying batch information.
+    // Each card displays the batch name, an image loaded dynamically based on the batch name, and a "Load info" button.
+    // The handleClick function is invoked when the "Load info" button is clicked.
   return (
     <Grid className='batches'>
       <Grid container spacing={2}>

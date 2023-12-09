@@ -10,6 +10,7 @@ const AdminNav = () => {
       minHeight: 75,
     },
   }));
+  // defines a React component that represents a simple dashboard for a test admin, displaying a welcome message in the center with specific styling.
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static"  style={{backgroundColor:'#9c8a7d'}}>

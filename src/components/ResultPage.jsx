@@ -4,13 +4,14 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import axiosInst from '../AxiosInst.js'
 import LoaderComp from '../loader.js';
 import '../css/result.css'
-
+// It initializes a state variable mailData using the useState hook to manage the form data. This state includes fields like recieverMail, resultLink, textAttach, and file.
 const ResultPage = (props) => {
   const batch = localStorage.getItem('batch');
   const [fileCount, setFileCount]=useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors]=useState({})
 
+// defines a handleChange function to update the state when form inputs change.  
   const [mailData, setMailData]=useState([{
     recieverMail: props.data ? props.data.recieverMail : '',
     resultLink: props.data ? props.data.resultLink : '',
@@ -89,7 +90,10 @@ const ResultPage = (props) => {
     }else{
       setIsLoading(false)
     }
-  } 
+  }
+  // It renders a form using the Material-UI library components, including TextField for input fields and Button for a submit button.
+  // The form includes fields for the recipient email, attachment link, file input for attachments, and a multiline text field for messages/remarks.
+  // uses the Material-UI Grid component to create a responsive grid layout for arranging form elements. 
   return (
     <div>
       <Grid container spacing={2}>
@@ -155,6 +159,8 @@ const ResultPage = (props) => {
                         rows={4}
                         value={mailData.textAttach}
                         onChange={handleChange}
+                        // error={Boolean(errors.recieverMail)}
+                        // helperText={errors.mail}
                         />
                   </Grid>
                   <Grid item xs={12} sm={4} md={4}></Grid>  

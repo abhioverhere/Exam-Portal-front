@@ -7,5 +7,6 @@ const Help = () => {
     </div>
   )
 }
-
+// this component represents a help/instructional section for an exam or form. 
+  // It includes a heading with specific styling, providing guidance or information about the exam and how to fill out the associated form.
 export default Help
