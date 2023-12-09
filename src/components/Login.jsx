@@ -5,7 +5,6 @@ import axiosInst from '../AxiosInst';
 import Footer from './Footer.jsx'
 import '../css/login.css'
 
-
 const Login = () => {
 
     const [user, setUser] = useState({ email: '', password: '' });
@@ -26,6 +25,11 @@ const Login = () => {
         setErrors(Err);
         return Object.keys(Err).length === 0;
     };
+
+    const resetFields=()=>{
+      setErrors({})
+      setUser({ email: '', password: '' })
+    }
     
     const addHandler=()=>{
         if (validateLog()) {
@@ -44,14 +48,10 @@ const Login = () => {
     .catch((error) => {
         if (error.response && error.response.status === 401) {
             alert('Invalid credentials. Please try again.');
-            console.log('Before:', user)
-            setUser({ email: ' ', password: ' ' });
-            console.log('After:', user)
+            resetFields()
         } else {            
             alert('An error occurred. Please try again later.');
-            console.log('Before:', user)
-            setUser({ email: ' ', password: ' ' });   
-            console.log('After:', user)
+            resetFields()
         }});  
     }}  
   return (
