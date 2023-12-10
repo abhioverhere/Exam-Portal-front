@@ -65,7 +65,6 @@ const Form = (props) => {
       ...formData,
       [e.target.name]: e.target.value,
       });
-      validateForm()
     };
 // The handleSubmit function is called when the user submits the form.
 // It validates the form data using validateForm.
@@ -101,6 +100,9 @@ const Form = (props) => {
         },
         {   value:'ST',
             label:'KKEM March ST',
+        },
+        {   value:'DM',
+            label:'KKEM March DM',
         }
     ];
     // Gender options are mapped from another array (genders).    
@@ -250,7 +252,7 @@ return (
             </Grid>
         </form>)}
         {showMsg &&(<div className="redirect">
-            <h1>You have completed your registration. Redirecting back to profile page...</h1>
+            <h1 style={{textAlign:'center', color:'#6c6464'}}>You have completed your registration. <br/> Redirecting back to profile page...</h1>
         </div>)}
 {/* The form, registration completion message, or redirection message is conditionally rendered based on the state variables (showForm, showMsg, and redirect). */}
     </div>

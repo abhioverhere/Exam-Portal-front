@@ -65,7 +65,7 @@ return (
                         <Button variant="contained" style={{backgroundColor:'#123D6BFF', borderRadius:'15px'}} onClick={handleClick}>Register Here</Button>
                         )}
                     {showtick && (
-                        <TaskAltIcon className='tick' sx={{ fontSize:'75px', color:'#86E835'}}/>
+                        <TaskAltIcon className='tick' sx={{ fontSize:'75px', color:'green'}}/>
                         )}
                 </div> 
             </Grid>

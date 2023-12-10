@@ -19,8 +19,8 @@ const AdminNavSub = () => {
             <Link to={'/admindash'} style={{textDecoration:'none', color:'white', fontFamily:'serif'}}>Test Admin Portal</Link>
           </Typography>
           <Button color="inherit"><Link to={'/admindash'} style={{textDecoration:'none', color:'white', fontFamily:'serif'}}>Dashboard</Link></Button>
-          <Button color="inherit"><Link to={'/batches'} style={{textDecoration:'none', color:'white'}}>Batches</Link></Button>
-          <Button color="inherit"><Link to={'/logout'} style={{textDecoration:'none', color:'white'}}>Logout</Link></Button>
+          <Button color="inherit"><Link to={'/batches'} style={{textDecoration:'none', color:'white', fontFamily:'serif'}}>Batches</Link></Button>
+          <Button color="inherit"><Link to={'/logout'} style={{textDecoration:'none', color:'white', fontFamily:'serif'}}>Logout</Link></Button>
         </StyledToolbar>
       </AppBar>
     </Box>

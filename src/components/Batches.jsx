@@ -37,10 +37,10 @@ const AdminDash = () => {
                     <CardMedia
                           sx={{ height: 140 }}
                           image={require(`../assets/${item}.jpg`)}
-                          title="green iguana"/>
+                          title={item}/>
                       <CardContent>
-                        <Typography>{batchDisplay}{item}</Typography>
-                        <Button onClick={()=>handleClick(item)}>Load info</Button>
+                        <Typography>{batchDisplay}{item}</Typography> <br/> 
+                        <Button onClick={()=>handleClick(item)} style={{backgroundColor:'#123D6BFF', borderRadius:'10px', color:'white'}}>Load info</Button>
                       </CardContent>
                     </Card>                                
               </Grid>))}

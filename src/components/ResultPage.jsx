@@ -30,7 +30,6 @@ const ResultPage = (props) => {
   const handleFileChange = (e) => {    
       setFileCount(e.target.files.length)
     };
-  
     const validate = () => {
       if(mailData.recieverMail===null){
         resetForm()        
@@ -98,7 +97,7 @@ const ResultPage = (props) => {
     <div>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={8} md={8}>
-          <h1 className='mailHead'>E-Mail Results of {batch} batch</h1>
+          <h1 className='mailHead'>E-Mail Results of {batch}</h1>
         </Grid>
         <Grid item xs={12} sm={4} md={4}></Grid>
       </Grid>
