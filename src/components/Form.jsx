@@ -93,7 +93,7 @@ const Form = (props) => {
       if(validateForm()){
         sessionStorage.setItem('regStatus', 'true');
         axiosInst.put(`/user/regupdate/${userInfo}`, {})
-        axiosInst.put(`http://localhost:4000/user/regupdate/${userInfo}`, {})
+        // axiosInst.put(`http://localhost:4000/user/regupdate/${userInfo}`, {})
         .then(res=>{})    
         .catch(err=>console.log(err)); 
         axiosInst.post('/user/upload', formData)

@@ -6,7 +6,7 @@ export default function PieActiveArc() {
   const[info, setInfo]= useState([])
   useEffect(()=>{
     axiosInst.post('/admin/deets')
-    axiosInst.post('http://localhost:4000/admin/deets')
+    // axiosInst.post('http://localhost:4000/admin/deets')
     .then(res=>setInfo(res.data))
     .catch(err=>console.log(err))
   },[]);

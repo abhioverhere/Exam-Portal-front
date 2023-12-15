@@ -15,7 +15,7 @@ const List = () => {
 // The retrieved data is then stored in the data state using the setData function.
   useEffect(()=>{
     axiosInst.post(`/admin/batch/${batch}`)
-    axiosInst.post(`http://localhost:4000/admin/batch/${batch}`)
+    // axiosInst.post(`http://localhost:4000/admin/batch/${batch}`)
     .then(res=>setData(res.data))    
     .catch(err=>console.log(err))
   });

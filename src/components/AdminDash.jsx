@@ -14,7 +14,7 @@ const AdminDash = () => {
   const navigate = useNavigate(); 
   useEffect(()=>{
     axiosInst.post('/admin/deets')
-    axiosInst.post('http://localhost:4000/admin/deets')
+    // axiosInst.post('http://localhost:4000/admin/deets')
     .then(res=>setData(res.data))
     .catch(err=>console.log(err))
     const timer1=setTimeout(()=>{

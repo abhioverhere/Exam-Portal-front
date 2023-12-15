@@ -39,7 +39,7 @@ const Login = (props) => {
   const addHandler=()=>{
       if (validateLog()) {
       axiosInst.post('/user/login',user)
-      axiosInst.post('http://localhost:4000/user/login',user)
+      // axiosInst.post('http://localhost:4000/user/login',user)
       .then((res)=>{
         console.log('Login response:', res.data);
         if (res.data.message === 'success-user') {

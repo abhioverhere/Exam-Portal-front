@@ -7,7 +7,6 @@ import '../css/result.css'
 // It initializes a state variable mailData using the useState hook to manage the form data. This state includes fields like recieverMail, resultLink, textAttach, and file.
 const ResultPage = (props) => {
   const batch = localStorage.getItem('batch');
-  // const [fileCount, setFileCount]=useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors]=useState({})
 
@@ -16,7 +15,6 @@ const ResultPage = (props) => {
     recieverMail: props.data ? props.data.recieverMail : '',
     resultLink: props.data ? props.data.resultLink : '',
     textAttach: props.data ? props.data.textAttach : ''
-    // ,file: props.data ? props.data.file : []
   }])
   
   const handleChange = (e) => {
@@ -26,13 +24,10 @@ const ResultPage = (props) => {
     }));
     setErrors({ ...errors, [e.target.name]: '' });
     };
-  
-  // const handleFileChange = (e) => {    
-  //     setFileCount(e.target.files.length)
-  //   };
+
     const validate = () => {
-      if(mailData.recieverMail===null){
-        resetForm()        
+      if(mailData.recieverMail===null){       
+        alert('All fields must be filled to send the Email.') 
       }else{
         const Err = {};
         if (!mailData.recieverMail.trim()) { Err.recieverMail = 'E-Mail is a required field';}
@@ -44,35 +39,33 @@ const ResultPage = (props) => {
 
   const resetForm =()=>{
     setIsLoading(false)
-    // setFileCount(0)
     setMailData({
       recieverMail: '',
       resultLink: '',
       textAttach: ''
-      // ,file: []
     })
   }
 
   const handleSubmit=(e)=>{
     e.preventDefault();
     setIsLoading(true)
-    validate()
     const data = new FormData();
     // const files= document.getElementById('resultFile');
     // for(let i=0;i<files.files.length;i++){
-    //      data.append('file',files.files[i]);    
-    // };
-    data.append('recieverMail',mailData.recieverMail)
-    data.append('resultLink',mailData.resultLink)
-    data.append('textAttach',mailData.textAttach)
-    data.append('batch',batch)
-    
-    if(validate()){
-      axiosInst.post('/admin/result',data)
-      .then(res=>res.json)
-      .then(res=>{        
-        alert('Email sent successfully')
-        resetForm()
+      //      data.append('file',files.files[i]);    
+      // };
+      data.append('recieverMail',mailData.recieverMail)
+      data.append('resultLink',mailData.resultLink)
+      data.append('textAttach',mailData.textAttach)
+      data.append('batch',batch)
+      
+      validate()
+      if(validate()){
+        axiosInst.post('/admin/result',data)
+        .then(res=>res.json)
+        .then(res=>{        
+          alert('Email sent successfully')
+          resetForm()
       })
       .catch(err=>{         
         console.log(err.response) 
