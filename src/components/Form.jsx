@@ -45,16 +45,35 @@ const Form = (props) => {
 
     // The validateForm function checks for errors in the form data and sets them in the errors state.
 // Error messages are displayed for each form field if validation fails.
+    const emptyForm=()=>{
+            if(
+                formData.firstName===''&&
+                formData.lastName===''&&
+                formData.phone===''&&
+                formData.formMail===''&&
+                formData.dob===''&&
+                formData.batch===''&&
+                formData.gender===''                
+                ){
+                alert('Empty forms cannot be submitted')
+                return false                       
+        }
+    }
+
     const validateForm = () => {
       const formErrors = {};
+      if (emptyForm()){}
       if (!formData.firstName.trim()) {formErrors.firstName = 'First Name is a required field';}
-      if (!formData.lastName.trim()) {formErrors.lastName = 'Last Name is a required field';}
-      if (!formData.phone.trim()) {formErrors.phone = 'Phone is a required field';}
+      else if (!formData.lastName.trim()) {formErrors.lastName = 'Last Name is a required field';}
+      else if (!formData.formMail.trim()) { formErrors.formMail = 'E-Mail is a required field';}
+      else if (!/\S+@\S+\.\S+/.test(formData.formMail)) {formErrors.formMail = 'Invalid E-Mail address (Check Email format)';}
+      else if (!formData.phone.trim()) {formErrors.phone = 'Phone is a required field';}
+      else if (!/^\S$/.test(formData.phone)){formErrors.phone = 'Please use Numbers only';}
       else if (!/^\d{1,10}$/.test(formData.phone)){formErrors.phone = 'Invalid Phone Number. Input a 10 digit Mobile number or a 11 digit Landline Number (with 4 digit STD code) with no spaces or breaks. ';}
-      if (!formData.dob.trim()) { formErrors.dob = 'Date of Birth is a required field';}
-      else if (!/^\d{2}\/\d{2}\/\d{4}$/.test(formData.dob)) {formErrors.dob = 'Date of Birth is to be entered in DD/MM/YYYY format';}
-      if (!formData.formMail.trim()) { formErrors.formMail = 'E-Mail is a required field';}
-      else if (!/\S+@\S+\.\S+/.test(formData.formMail)) {formErrors.formMail = 'Invalid E-Mail address';}
+      else if (!formData.dob.trim()) { formErrors.dob = 'Date of Birth is a required field';}
+      else if (!/^\d{2}\/\d{2}\/\d{4}$/.test(formData.dob)) {formErrors.dob = 'Please enter in DD/MM/YYYY format';}
+      else if (!formData.batch.trim()) {formErrors.batch = 'Please Select your Batch';}
+      else if (!formData.gender.trim()) {formErrors.gender = 'Please Select your Gender';}
       
       setErrors(formErrors);
       return Object.keys(formErrors).length === 0;
@@ -73,10 +92,11 @@ const Form = (props) => {
       e.preventDefault();
       if(validateForm()){
         sessionStorage.setItem('regStatus', 'true');
+        axiosInst.put(`/user/regupdate/${userInfo}`, {})
         axiosInst.put(`http://localhost:4000/user/regupdate/${userInfo}`, {})
         .then(res=>{})    
         .catch(err=>console.log(err)); 
-        axiosInst.post('http://localhost:4000/user/upload', formData)
+        axiosInst.post('/user/upload', formData)
         .then((res) =>{
           alert(res.data);
           navigate('/userdash');
@@ -163,7 +183,7 @@ return (
                         id="outlined-error"
                         label="Last Name"
                         variant="outlined"
-                        name="lastName"
+                        name="lastName"                        
                         value={formData.lastName}
                         onChange={handleChange}
                         error={Boolean(errors.lastName)}
@@ -178,6 +198,7 @@ return (
                         label="E-mail"
                         variant="outlined"
                         name="formMail"
+                        
                         value={formData.formMail}
                         onChange={handleChange}
                         error={Boolean(errors.formMail)}
@@ -192,6 +213,7 @@ return (
                         label="Phone Number"
                         variant="outlined"
                         name="phone"
+                        
                         value={formData.phone}
                         onChange={handleChange}
                         error={Boolean(errors.phone)}
@@ -205,7 +227,8 @@ return (
                         id="outlined-error"
                         label="Date of Birth"
                         variant="outlined"
-                        name="dob"
+                        name="dob"  
+                                              
                         value={formData.dob}
                         onChange={handleChange}
                         error={Boolean(errors.dob)}
@@ -218,6 +241,8 @@ return (
 	                className='dropdownbutton'
                     name="batch"
                     select
+                    helperText={errors.batch}
+                    error={Boolean(errors.batch)}
                     label="Batch"
                     onChange={handleChange}>
                     {batches.map((option) => (
@@ -225,7 +250,7 @@ return (
                         {option.label}
                       </MenuItem>
                     ))}
-        </TextField>
+                </TextField>
                 </Grid>
 
                 <Grid item xs={12} sm={4} md={4}>
@@ -234,6 +259,8 @@ return (
 	                    className='dropdownbutton'
                         name="gender"
                         select
+                        helperText={errors.gender}
+                        error={Boolean(errors.gender)}
                         label="Gender"
                         onChange={handleChange}>
                         {genders.map((option) => (
@@ -246,7 +273,7 @@ return (
 
                 <Grid item xs={12} sm={4} md={4}></Grid>
 
-                <Grid item xs={12} sm={4} md={4} >
+                <Grid item xs={12} sm={4} md={4}>
                    <Button variant="contained" style={{backgroundColor:'#123D6BFF', borderRadius:'15px'}} fullWidth onClick={handleSubmit}>Submit Form</Button>
                 </Grid>
             </Grid>

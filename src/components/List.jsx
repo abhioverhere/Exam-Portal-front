@@ -14,13 +14,14 @@ const List = () => {
   // The useEffect hook is used to fetch data when the component mounts. It sends a POST request to http://localhost:4000/admin/batch/${batch} using Axios.
 // The retrieved data is then stored in the data state using the setData function.
   useEffect(()=>{
+    axiosInst.post(`/admin/batch/${batch}`)
     axiosInst.post(`http://localhost:4000/admin/batch/${batch}`)
     .then(res=>setData(res.data))    
-    .catch(err=>console.log(err))});
+    .catch(err=>console.log(err))
+  });
     const upload = ()=>{
-      navigate('/upload')
+      navigate('/upload')}
       // The upload function is defined, which uses the navigate function to navigate to the '/upload' page when called.
-    }
     //  component renders a UI layout using Material-UI's Grid, TableContainer, Table, and related components.
    // It displays a heading indicating "Registered Candidates - {batch}" and a button labeled "Send Result" with specific styling.
   //  The main content is a table with headers for "S.No.", "Name", "E Mail", and "Phone".
@@ -38,8 +39,8 @@ const List = () => {
         </Grid>
       </Grid>
       <Grid container>
-        <TableContainer component={Paper} stickyHeader align='center' aria-label="simple table" sx={{ margin:'2% 15%', maxHeight:'350px', maxWidth:'70%' }}>
-          <Table className='table'>
+        <TableContainer component={Paper} stickyHeader align='center' aria-label="simple table" sx={{ margin:'2% 15%', maxHeight:'350px', maxWidth:'70%' }} >
+          <Table className={'table'}>
             <TableHead>
               <TableRow>
                 <TableCell align="center" className='tableHead'>S.No.</TableCell>

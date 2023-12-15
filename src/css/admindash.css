@@ -1,0 +1,23 @@
+@media screen and (max-width:765px){
+    /* Small Screens */
+    .admin-dash-head{
+       font-size: 120%;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .admin-dash-body h3{
+       font-size: 12%;
+    }
+
+}
+@media screen and (min-width:765px){
+    /* Large Screens */
+    .admin-dash-head{
+        font-size: 350%;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .admin-dash-body h3{
+        font-style: italic;
+    }
+
+
+}

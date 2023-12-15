@@ -20,18 +20,18 @@ const GenNav = () => {
         <Link href="/">
           <Box
             component="img"
-            sx={{ height: 44, marginRight:'10px' }}
+            sx={{ height: 38, marginRight:'10px' }}
             alt="Logo"
             src={logo}
             // It uses Material-UI components (Box, AppBar, Link, Box, Typography, and Button) to create the structure.
           />
-    </Link>
+        </Link>
     {/* A Typography component displaying the text "ICT Exam Portal"  */}
     {/* A Button component containing a Link to an external URL (https://retail.ictkerala.org/) with the label "Paatshala" */}
-          <Typography variant="h5" component="div" className='genAppHead' sx={{ flexGrow: 1, color:'white' }} style={{fontFamily:'serif'}}>
+          <Typography variant="h6" component="div" className='genAppHead' sx={{ flexGrow: 1, color:'white' }} style={{fontFamily:'serif'}}>
            ICT Exam Portal
           </Typography>
-          <Button color="inherit"><Link to='https://retail.ictkerala.org/' style={{textDecoration:'none', color:'white', fontFamily:'serif'}}>Paatshala</Link></Button>
+          <Button color="inherit"><Link to='https://retail.ictkerala.org/' style={{textDecoration:'none', color:'white', fontFamily:'serif', fontSize:'80%'}}>Paatshala</Link></Button>
         </StyledToolbar>
       </AppBar>
     </Box>

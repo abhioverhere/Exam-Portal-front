@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { styled } from '@mui/material/styles';
 import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material'
+import logo from '../assets/logo192.png'
 // This component represents a simplified version of a navigation bar with a title ("ICT Exam Portal") and two navigation links (Help, Logout). The styling includes a custom background color for the navigation bar and specific styles for text and links.
 const UserNavMain = () => {
   const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -15,6 +16,15 @@ const UserNavMain = () => {
       {/* Includes an AppBar component with a custom style (background color) and a Toolbar component that contains a title and two navigation links. */}
       <AppBar position="static"  style={{backgroundColor:'#9c8a7d'}}>
         <StyledToolbar> 
+          <Link href="/">
+            <Box
+              component="img"
+              sx={{ height: 38, marginRight:'10px' }}
+              alt="Logo"
+              src={logo}
+              // It uses Material-UI components (Box, AppBar, Link, Box, Typography, and Button) to create the structure.
+            />
+          </Link>
           {/*The Typography component is used to display the title "ICT Exam Portal" with a serif font.  */}       
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} style={{fontFamily:'serif'}}>ICT Exam Portal</Typography> 
           {/* Two Button components are used to create navigation links to '/help' and '/logout'. These links are styled to have white text and a serif font. */}         

@@ -1,30 +1,9 @@
-.ictLogo{
-    max-width: 100%;
-}
+@keyframes slide-up {
+    0% {
+      transform:translateY(100%);
+    }
+    100% {
+      transform:translateY(0);
+    }
+  }
 
-#ictTextLogo-up{
-    font-family: 'Open Sans Condensed', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
-    font-weight: 900;
-    font-size: 155%;
-    color: black;
-}
-#ictTextLogo-low{
-    font-family: 'Open Sans Condensed', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
-    font-weight: 900;
-    font-size: 155%;
-    color: #0198cc;
-}
-
-.footDivHead{
-    font-family: 'Open Sans Condensed', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
-    font-size: 130%;
-    font-weight: bold;
-}
-.footDiv{
-    font-family: 'Open Sans Condensed', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
-    font-size: 80%;
-}
-.text {
-    opacity: 0;
-    transition: opacity 1s ease-in;
-}

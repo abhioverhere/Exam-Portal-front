@@ -6,6 +6,7 @@ import '../css/list.css'
 const List = () => {
   const[data, setData]= useState([]);
   useEffect(()=>{
+    axiosInst.post('/admin/othdata/unreg')
     axiosInst.post('http://localhost:4000/admin/othdata/unreg')
     .then(res=>setData(res.data))    
     .catch(err=>console.log(err))});

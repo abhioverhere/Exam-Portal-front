@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { Button, Grid, TextField, Typography } from '@mui/material'
-import UploadFileIcon from '@mui/icons-material/UploadFile';
+import { Button, Grid, TextField } from '@mui/material'
+// import UploadFileIcon from '@mui/icons-material/UploadFile';
 import axiosInst from '../AxiosInst.js'
 import LoaderComp from '../loader.js';
 import '../css/result.css'
 // It initializes a state variable mailData using the useState hook to manage the form data. This state includes fields like recieverMail, resultLink, textAttach, and file.
 const ResultPage = (props) => {
   const batch = localStorage.getItem('batch');
-  const [fileCount, setFileCount]=useState(0);
+  // const [fileCount, setFileCount]=useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors]=useState({})
 
@@ -15,8 +15,8 @@ const ResultPage = (props) => {
   const [mailData, setMailData]=useState([{
     recieverMail: props.data ? props.data.recieverMail : '',
     resultLink: props.data ? props.data.resultLink : '',
-    textAttach: props.data ? props.data.textAttach : '',
-    file: props.data ? props.data.file : []
+    textAttach: props.data ? props.data.textAttach : ''
+    // ,file: props.data ? props.data.file : []
   }])
   
   const handleChange = (e) => {
@@ -27,9 +27,9 @@ const ResultPage = (props) => {
     setErrors({ ...errors, [e.target.name]: '' });
     };
   
-  const handleFileChange = (e) => {    
-      setFileCount(e.target.files.length)
-    };
+  // const handleFileChange = (e) => {    
+  //     setFileCount(e.target.files.length)
+  //   };
     const validate = () => {
       if(mailData.recieverMail===null){
         resetForm()        
@@ -44,12 +44,12 @@ const ResultPage = (props) => {
 
   const resetForm =()=>{
     setIsLoading(false)
-    setFileCount(0)
+    // setFileCount(0)
     setMailData({
       recieverMail: '',
       resultLink: '',
-      textAttach: '',
-      file: []
+      textAttach: ''
+      // ,file: []
     })
   }
 
@@ -58,17 +58,17 @@ const ResultPage = (props) => {
     setIsLoading(true)
     validate()
     const data = new FormData();
-    const files= document.getElementById('resultFile');
-    for(let i=0;i<files.files.length;i++){
-         data.append('file',files.files[i]);    
-    };
+    // const files= document.getElementById('resultFile');
+    // for(let i=0;i<files.files.length;i++){
+    //      data.append('file',files.files[i]);    
+    // };
     data.append('recieverMail',mailData.recieverMail)
     data.append('resultLink',mailData.resultLink)
     data.append('textAttach',mailData.textAttach)
     data.append('batch',batch)
     
     if(validate()){
-      axiosInst.post('http://localhost:4000/admin/result',data)
+      axiosInst.post('/admin/result',data)
       .then(res=>res.json)
       .then(res=>{        
         alert('Email sent successfully')
@@ -120,7 +120,8 @@ const ResultPage = (props) => {
                         helperText={errors.recieverMail}
                         />
                   </Grid> 
-                  <Grid item xs={8} sm={8} md={8} marginBottom='2.5%'>
+                  <Grid item xs={12} sm={12} md={12} marginBottom='2.5%'>
+                  {/* <Grid item xs={8} sm={8} md={8} marginBottom='2.5%'> */}
                     <TextField
                         fullWidth
                         className="resFormfields"
@@ -132,7 +133,7 @@ const ResultPage = (props) => {
                         onChange={handleChange}
                         />
                   </Grid>
-                  <Grid item xs={4} sm={4} md={4} marginBottom='2.5%' textAlign='center'>
+                  {/* <Grid item xs={4} sm={4} md={4} marginBottom='2.5%' textAlign='center'>
                     <input        
                           style={{ display: 'none' }}
                           id="resultFile"
@@ -145,7 +146,7 @@ const ResultPage = (props) => {
                         </Button><br />
                         <Typography variant='h8'>{fileCount} files Uploaded</Typography>
                     </label>
-                  </Grid>
+                  </Grid> */}
                   <Grid item xs={12} sm={12} md={12} marginBottom='2.5%'>
                     <TextField
                         fullWidth

@@ -3,8 +3,9 @@
 }
 .contHead{
     margin-left: 15%;
-    font-size: 325%;
+    font-size: 300%;
     color: rgb(255, 255, 255);
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .result{
     text-align: center;

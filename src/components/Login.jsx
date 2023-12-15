@@ -38,7 +38,9 @@ const Login = (props) => {
   //If the login is successful, it sets session storage values based on the user's role (user or admin) and navigates to the corresponding dashboard. 
   const addHandler=()=>{
       if (validateLog()) {
-      axiosInst.post('http://localhost:4000/user/login',user).then((res)=>{
+      axiosInst.post('/user/login',user)
+      axiosInst.post('http://localhost:4000/user/login',user)
+      .then((res)=>{
         console.log('Login response:', res.data);
         if (res.data.message === 'success-user') {
           sessionStorage.setItem("userToken", res.data.token);
