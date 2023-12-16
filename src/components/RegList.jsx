@@ -6,7 +6,7 @@ import '../css/list.css'
 const List = () => {
   const[data, setData]= useState([]);
   useEffect(()=>{
-    axiosInst.post('/admin/othdataw/reg')
+    axiosInst.post('/admin/othdata/reg')
     .then(res=>setData(res.data))    
     .catch(err=>console.log(err))});
 
