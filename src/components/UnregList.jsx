@@ -7,19 +7,18 @@ const List = () => {
   const[data, setData]= useState([]);
   useEffect(()=>{
     axiosInst.post('/admin/othdata/unreg')
-    // axiosInst.post('http://localhost:4000/admin/othdata/unreg')
     .then(res=>setData(res.data))    
     .catch(err=>console.log(err))});
 
   return (
-    <Grid>
+    <Grid className='listPage'>
       <Grid container spacing={2}>
         <Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
           <h1 className='contHead'>Unregistered Candidates</h1>        
         </Grid>
       </Grid>
       <Grid container>
-        <TableContainer component={Paper} stickyHeader align='center' aria-label="simple table" sx={{ margin:'2% 15%', maxHeight:'350px', maxWidth:'70%' }}>
+        <TableContainer component={Paper} stickyHeader align='center' aria-label="simple table" sx={{ margin:'2% 15%', maxHeight:'350px', maxWidth:'70%' }} style={{ animation: 'fade-in 1.3s ease'}}>
           <Table className='table'>
             <TableHead>
               <TableRow>

@@ -15,7 +15,6 @@ const UserDash = () => {
     const regStatus = sessionStorage.getItem('regStatus');
     const navigate = useNavigate();
     // The useNavigate hook from React Router is used to get the navigate function
-
     // The checkReg function is defined to check the registration status
     // If the registration status is 'true', it sets the display state to 'Registered', shows a tick (showtick), and hides the registration button (showbtn).
 
@@ -48,7 +47,7 @@ const UserDash = () => {
 return (
     <div>
         <div>
-          <h3 style={{fontSize:'40px', color:'white'}} className='userWelcome'>Welcome, {userName} !! </h3>
+          <h3 style={{color:'white'}} className='userWelcome'>Welcome, <br /> {userName} !! </h3>
         </div> 
         <Grid container spacing={2}>
             <Grid item xs={12} sm={2} md={2}></Grid>
@@ -59,7 +58,7 @@ return (
                 </div>
             </Grid>
             <Grid item xs={12} sm={4} md={4} className='displayBox' >
-                <div className='box' >
+                <div className='box' id="box2" >
                     <p>REGISTRATION STATUS:<br /><br />{display}</p><br /><br />
                     {showbtn && (
                         <Button variant="contained" style={{backgroundColor:'#123D6BFF', borderRadius:'15px'}} onClick={handleClick}>Register Here</Button>

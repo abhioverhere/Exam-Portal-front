@@ -9,13 +9,16 @@ import AdminDash from './components/AdminDash.jsx';
 import Batches from './components/Batches.jsx';
 import List from './components/List.jsx';
 import UnregList from './components/UnregList.jsx';
+import RegList from './components/RegList.jsx';
 import IneligList from './components/IneligList.jsx';
 import ResultPage from './components/ResultPage.jsx';
 import UserDash from './components/UserDash.jsx';
 import Help from './components/Help.jsx';
 import RegForm from './components/Form.jsx';
 import { Logout } from './Logout.js';
-import { Requireauth } from './Auth.js';
+import { RequireUserauth } from './UserAuth.js';
+import { RequireAdminauth } from './AdminAuth.js';
+
 import './App.css'
 
 function App() {
@@ -24,16 +27,17 @@ function App() {
       <Route path={'/'} element={<Main child={<Login/>}/>}/>
       <Route path ={'/logout'} element={<Logout/>}></Route>
 
-      <Route path={'/admindash'} element={<Requireauth><AdminMain child={<AdminDash/>}/></Requireauth>}/>
-      <Route path={'/batches'} element={<Requireauth><AdminMainSub child={<Batches/>}/></Requireauth>}/>
-      <Route path={'/upload'} element={<Requireauth><AdminMainSub child={<ResultPage/>}/></Requireauth>}/>
-      <Route path={'/list'} element={<Requireauth><AdminMainSub child={<List/>}/></Requireauth>}/>   
-      <Route path={'/unreglist'} element={<Requireauth><AdminMainSub child={<UnregList/>}/></Requireauth>}/>   
-      <Route path={'/ineliglist'} element={<Requireauth><AdminMainSub child={<IneligList/>}/></Requireauth>}/>   
+      <Route path={'/admindash'} element={<RequireAdminauth><AdminMain child={<AdminDash/>}/></RequireAdminauth>}/>
+      <Route path={'/batches'} element={<RequireAdminauth><AdminMainSub child={<Batches/>}/></RequireAdminauth>}/>
+      <Route path={'/upload'} element={<RequireAdminauth><AdminMainSub child={<ResultPage/>}/></RequireAdminauth>}/>
+      <Route path={'/list'} element={<RequireAdminauth><AdminMainSub child={<List/>}/></RequireAdminauth>}/>   
+      <Route path={'/reglist'} element={<RequireAdminauth><AdminMainSub child={<RegList/>}/></RequireAdminauth>}/>   
+      <Route path={'/unreglist'} element={<RequireAdminauth><AdminMainSub child={<UnregList/>}/></RequireAdminauth>}/>   
+      <Route path={'/ineliglist'} element={<RequireAdminauth><AdminMainSub child={<IneligList/>}/></RequireAdminauth>}/>   
       
-      <Route path={'/userdash'} element={<Requireauth><UserMain child={<UserDash/>}/></Requireauth>}/>
-      <Route path={'/help'} element={<Requireauth><UserSubMain child={<Help/>}/></Requireauth>}/>
-      <Route path={'/regform'} element={<Requireauth><UserSubMain child={<RegForm/>}/></Requireauth>}/>
+      <Route path={'/userdash'} element={<RequireUserauth><UserMain child={<UserDash/>}/></RequireUserauth>}/>
+      <Route path={'/help'} element={<RequireUserauth><UserSubMain child={<Help/>}/></RequireUserauth>}/>
+      <Route path={'/regform'} element={<RequireUserauth><UserSubMain child={<RegForm/>}/></RequireUserauth>}/>
 
     </Routes>
   );

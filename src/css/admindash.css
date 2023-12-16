@@ -1,11 +1,11 @@
 @media screen and (max-width:765px){
     /* Small Screens */
     .admin-dash-head{
-       font-size: 120%;
+       font-size: 150%;
        font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .admin-dash-body h3{
-       font-size: 12%;
+       font-size: 80%;
     }
 
 }
@@ -19,5 +19,20 @@
         font-style: italic;
     }
 
+    @keyframes slide-up {
+        0% {
+          transform:translateY(100%);
+        }
+        100% {
+          transform:translateY(0);
+        }
+      } 
 
+}
+
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }

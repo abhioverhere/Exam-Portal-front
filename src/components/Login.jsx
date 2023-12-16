@@ -41,7 +41,6 @@ const Login = (props) => {
       axiosInst.post('/user/login',user)
       // axiosInst.post('http://localhost:4000/user/login',user)
       .then((res)=>{
-        console.log('Login response:', res.data);
         if (res.data.message === 'success-user') {
           sessionStorage.setItem("userToken", res.data.token);
           sessionStorage.setItem("userName", res.data.userName);
@@ -63,7 +62,7 @@ const Login = (props) => {
           resetFields()
       } else if (error.response.data.error==='wrong-pass'){            
           alert('Wrong Password. Try Again.');
-          setUser({ password: '' })
+          resetFields()
       } else if (error.response && error.response.status===404){            
           alert('Login Error. Try Again Later.');
           resetFields()

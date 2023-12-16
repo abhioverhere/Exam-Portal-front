@@ -1,0 +1,15 @@
+@media screen and (max-width:765px) {
+    h1{
+        font-size: 120%;
+    }
+    li{
+        font-size: 100%;
+    }
+    
+}
+@media screen and (min-width:765px) {
+    h1{
+        font-size: 190%;
+    }
+    
+}

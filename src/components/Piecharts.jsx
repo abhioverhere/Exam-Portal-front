@@ -24,18 +24,18 @@ export default function PieActiveArc() {
       series={[
         {
           paddingAngle: 3,
-          innerRadius: 40,
+          innerRadius: 30,
           data,
           highlightScope: { faded: 'global', highlighted: 'item' },
-          faded: { innerRadius: 30, additionalRadius: -15, color: 'gray' },
+          faded: { innerRadius: 30, additionalRadius: -10, color: 'gray' },
         },
       ]}
-      height={200}
+      height={150}
       slotProps={{
         legend: {          
           direction: 'column',          
           labelStyle: {
-            fontSize: 12},
+            fontSize: 11},
           itemMarkWidth: 20,
           itemMarkHeight: 6,
           markGap: 5,

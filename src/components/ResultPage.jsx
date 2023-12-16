@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Button, Grid, TextField } from '@mui/material'
-// import UploadFileIcon from '@mui/icons-material/UploadFile';
 import axiosInst from '../AxiosInst.js'
 import LoaderComp from '../loader.js';
 import '../css/result.css'
@@ -11,11 +10,11 @@ const ResultPage = (props) => {
   const [errors, setErrors]=useState({})
 
 // defines a handleChange function to update the state when form inputs change.  
-  const [mailData, setMailData]=useState([{
+  const [mailData, setMailData]=useState({
     recieverMail: props.data ? props.data.recieverMail : '',
     resultLink: props.data ? props.data.resultLink : '',
     textAttach: props.data ? props.data.textAttach : ''
-  }])
+  })
   
   const handleChange = (e) => {
     setMailData(prevState=>({
@@ -24,14 +23,15 @@ const ResultPage = (props) => {
     }));
     setErrors({ ...errors, [e.target.name]: '' });
     };
-
+  
     const validate = () => {
-      if(mailData.recieverMail===null){       
-        alert('All fields must be filled to send the Email.') 
+      if(mailData.recieverMail===null){
+        resetForm()        
       }else{
         const Err = {};
         if (!mailData.recieverMail.trim()) { Err.recieverMail = 'E-Mail is a required field';}
         else if (!/\S+@\S+\.\S+/.test(mailData.recieverMail)) {Err.recieverMail = 'Invalid E-Mail address';}
+        else if (/.*,.*/.test(mailData.recieverMail)) {Err.recieverMail = 'Please only add one e-mail address at a time.';}
         setErrors(Err);
         return Object.keys(Err).length === 0;
       }
@@ -49,23 +49,17 @@ const ResultPage = (props) => {
   const handleSubmit=(e)=>{
     e.preventDefault();
     setIsLoading(true)
-    const data = new FormData();
-    // const files= document.getElementById('resultFile');
-    // for(let i=0;i<files.files.length;i++){
-      //      data.append('file',files.files[i]);    
-      // };
-      data.append('recieverMail',mailData.recieverMail)
-      data.append('resultLink',mailData.resultLink)
-      data.append('textAttach',mailData.textAttach)
-      data.append('batch',batch)
-      
-      validate()
-      if(validate()){
-        axiosInst.post('/admin/result',data)
-        .then(res=>res.json)
-        .then(res=>{        
-          alert('Email sent successfully')
-          resetForm()
+    validate()    
+    const toSend={
+      ...mailData,
+      batch:batch
+    }
+    if(validate()){
+      axiosInst.post('/admin/result',toSend)
+      .then(res=>res.data)
+      .then(res=>{        
+        alert('Email sent successfully')
+        resetForm()
       })
       .catch(err=>{         
         console.log(err.response) 
@@ -94,10 +88,10 @@ const ResultPage = (props) => {
         </Grid>
         <Grid item xs={12} sm={4} md={4}></Grid>
       </Grid>
-      <form>
+      <form style={{animation: 'zoom-in 1.5s ease'}}>
         <Grid container spacing={2} className='mailer' >
-            <Grid item xs={12} sm={2} md={2}></Grid>
-            <Grid item xs={12} sm={8} md={8}>
+            <Grid item xs={1} sm={2} md={2}></Grid>
+            <Grid item xs={10} sm={8} md={8}>
               <Grid container className='resForm'> 
                   <Grid item xs={12} sm={12} md={12} marginBottom='2.5%'>
                     <TextField
@@ -114,7 +108,6 @@ const ResultPage = (props) => {
                         />
                   </Grid> 
                   <Grid item xs={12} sm={12} md={12} marginBottom='2.5%'>
-                  {/* <Grid item xs={8} sm={8} md={8} marginBottom='2.5%'> */}
                     <TextField
                         fullWidth
                         className="resFormfields"
@@ -126,20 +119,7 @@ const ResultPage = (props) => {
                         onChange={handleChange}
                         />
                   </Grid>
-                  {/* <Grid item xs={4} sm={4} md={4} marginBottom='2.5%' textAlign='center'>
-                    <input        
-                          style={{ display: 'none' }}
-                          id="resultFile"
-                          multiple
-                          type="file"
-                          onChange={handleFileChange}/>
-                    <label htmlFor="resultFile">
-                        <Button variant="contained" style={{backgroundColor:'#123D6BFF', borderRadius:'15px', marginTop:'2%', minWidth:'85%', maxWidth:'90%'}} component="span" endIcon={<UploadFileIcon/>}>
-                          Upload Files 
-                        </Button><br />
-                        <Typography variant='h8'>{fileCount} files Uploaded</Typography>
-                    </label>
-                  </Grid> */}
+                  
                   <Grid item xs={12} sm={12} md={12} marginBottom='2.5%'>
                     <TextField
                         fullWidth
@@ -165,7 +145,7 @@ const ResultPage = (props) => {
                   </Grid>                    
               </Grid>
             </Grid>
-            <Grid item xs={12} sm={2} md={2}></Grid>            
+            <Grid item xs={1} sm={2} md={2}></Grid>            
         </Grid>        
         
       </form>      

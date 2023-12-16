@@ -1,13 +1,41 @@
-.batchHead{
-    margin-top: 3.5%;
-    margin-left: 15%;
-    font-size: 325%;
-    color: rgb(255, 255, 255);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+@media screen and (max-width:765px){
+    .batchHead{
+        margin-top: 3.5%;
+        margin-left: 15%;
+        font-size: 190%;
+        color: rgb(255, 255, 255);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .batchCards{
+        background-color: rgb(255,255,255,0.65);
+        border-radius: 20px;    
+        padding: 6.5%;
+        margin-bottom: 5%;
+    }
+    
+    
 }
-.batchCards{
-    background-color: rgb(255,255,255,0.65);
-    border-radius: 20px;    
-    padding: 5%;
-    margin-bottom: 5%;
+@media screen and (min-width:765px){
+    .batchHead{
+        margin-top: 3.5%;
+        margin-left: 15%;
+        font-size: 290%;
+        color: rgb(255, 255, 255);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .batchCards{
+        background-color: rgb(255,255,255,0.65);
+        border-radius: 20px;    
+        padding: 4.5%;
+        margin-bottom: 5%;
+    }
+    
+    
+}
+
+
+.batchCards :hover{
+    transform: scale(1.012);
+    transition: transform 0.2s
+    
 }

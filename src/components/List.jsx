@@ -15,7 +15,6 @@ const List = () => {
 // The retrieved data is then stored in the data state using the setData function.
   useEffect(()=>{
     axiosInst.post(`/admin/batch/${batch}`)
-    // axiosInst.post(`http://localhost:4000/admin/batch/${batch}`)
     .then(res=>setData(res.data))    
     .catch(err=>console.log(err))
   });
@@ -27,19 +26,19 @@ const List = () => {
   //  The main content is a table with headers for "S.No.", "Name", "E Mail", and "Phone".
 
   return (
-    <Grid>
+    <Grid className='listPage'>
       <Grid container spacing={2}>
         <Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
           <h1 className='contHead'>Registered Candidates - {batch}</h1>        
         </Grid>
         <Grid item xs={4} sm={4} md={4} lg={4} xl={4} >
           <div className="result">
-            <Button onClick={upload} style={{backgroundColor:'#123D6BFF', borderRadius:'15px'}} variant="contained" endIcon={<SendIcon />} >Send Result</Button>
+            <Button onClick={upload} style={{backgroundColor:'#123D6BFF', borderRadius:'15px', maxHeight:'50px'}} className="resultBtn" variant="contained" endIcon={<SendIcon />} >Send Result</Button>
           </div>
         </Grid>
       </Grid>
       <Grid container>
-        <TableContainer component={Paper} stickyHeader align='center' aria-label="simple table" sx={{ margin:'2% 15%', maxHeight:'350px', maxWidth:'70%' }} >
+        <TableContainer component={Paper} stickyHeader align='center' aria-label="simple table" sx={{ margin:'2% 15%', maxHeight:'350px', maxWidth:'70%' }} style={{ animation: 'fade-in 1.3s ease'}}>
           <Table className={'table'}>
             <TableHead>
               <TableRow>

@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material'
 import React from 'react'
-
+import '../css/help.css'
 const Help = () => {
   return (
     <div style={{marginTop:'3%' , marginLeft:'10%', marginRight:'10%', padding:'0.5% 2.5% 3.5% 2.5%',backgroundColor:'rgb(255,255,255,0.65)', borderRadius:'20px'}}>
@@ -25,6 +25,9 @@ const Help = () => {
             <li className='helpBody' style={{color:'#2e2c2f', fontFamily: 'Georgia, Times New Roman, Times, serif ', fontStyle:'italic'}}>
               Date of Birth: <br/>
               Please enter the date in the DD/MM/YYYY format. 
+            </li><br/>
+            <li className='helpBody' style={{color:'#2e2c2f', fontFamily: 'Georgia, Times New Roman, Times, serif ', fontStyle:'italic'}}>
+              Kindly check your E-Mails regularly to not miss Exam Date notifications.
             </li>
           </ul>
         </Grid>

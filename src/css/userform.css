@@ -1,4 +1,29 @@
-.batchlist{
+@media screen and (max-width:765px) {
+  .batchlist{
+  text-align: center;
+  margin-left: 35%;
+  margin-top: 2%;
+}
+  
+.dropdownbutton{
+  width:100%;
+  height: 55px;
+  font-size: 15px;
+  border: width 0.5em ;
+  border-color: #c4c7ce;
+  border-radius: 0.3em;  
+}
+.formHead{
+  font-size: 100%;  
+}
+.redirect h1{
+  font-size: 100%;  
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+  
+}
+@media screen and (min-width:765px) {
+  .batchlist{
   text-align: center;
   margin-left: 35%;
   margin-top: 2%;
@@ -14,4 +39,6 @@
 }
 .formHead{
   font-size: 200%;
+}
+  
 }

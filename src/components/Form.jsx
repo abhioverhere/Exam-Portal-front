@@ -68,7 +68,7 @@ const Form = (props) => {
       else if (!formData.formMail.trim()) { formErrors.formMail = 'E-Mail is a required field';}
       else if (!/\S+@\S+\.\S+/.test(formData.formMail)) {formErrors.formMail = 'Invalid E-Mail address (Check Email format)';}
       else if (!formData.phone.trim()) {formErrors.phone = 'Phone is a required field';}
-      else if (!/^\S$/.test(formData.phone)){formErrors.phone = 'Please use Numbers only';}
+      else if (!/^\d+$/.test(formData.phone)){formErrors.phone = 'Please use Numbers only';}
       else if (!/^\d{1,10}$/.test(formData.phone)){formErrors.phone = 'Invalid Phone Number. Input a 10 digit Mobile number or a 11 digit Landline Number (with 4 digit STD code) with no spaces or breaks. ';}
       else if (!formData.dob.trim()) { formErrors.dob = 'Date of Birth is a required field';}
       else if (!/^\d{2}\/\d{2}\/\d{4}$/.test(formData.dob)) {formErrors.dob = 'Please enter in DD/MM/YYYY format';}
@@ -143,7 +143,7 @@ const Form = (props) => {
           
 return (
     //The form uses Material-UI components such as Grid, TextField, Button, and MenuItem for styling and user interaction.          
-    <div style={{marginTop:'3%' , marginLeft:'10%', marginRight:'10%', padding:'0.5% 2.5% 3.5% 2.5%',backgroundColor:'rgb(255,255,255,0.65)', borderRadius:'20px'}} autoComplete="off">
+    <div style={{marginTop:'3%' , marginLeft:'10%', marginRight:'10%', padding:'0.5% 2.5% 3.5% 2.5%',backgroundColor:'rgb(255,255,255,0.65)', borderRadius:'20px'}} autoComplete="off" className='userForm'>
         {showForm &&(<div className="formHead">
             <h2 style={{color:'#6c6464'}}>Registration Form</h2>
         </div>)}

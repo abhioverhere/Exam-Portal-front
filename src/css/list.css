@@ -1,16 +1,54 @@
-.table{   
-    background-color: #c4bfbd;
-}
-.contHead{
-    margin-left: 15%;
-    font-size: 300%;
-    color: rgb(255, 255, 255);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.result{
-    text-align: center;
-    margin-top: 10%;
 
+@media screen and (max-width:765px){
+    /* Small Screens */
+    .table{   
+        background-color: #c4bfbd;
+    }
+    .contHead{
+        margin-left: 15%;
+        margin-top: 10%;
+        font-size: 120%;
+        color: rgb(255, 255, 255);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .result{
+        text-align: center;
+        margin-top: 10%;    
+    }
+}
+@media screen and (min-width:765px){
+    /* Large Screens */
+    .table{   
+        background-color: #c4bfbd;
+    }
+    .contHead{
+        margin-left: 15%;
+        margin-top: 3.5%;
+        font-size: 280%;
+        color: rgb(255, 255, 255);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .result{
+        text-align: center;
+        margin-top: 10%;    
+    }
+}
+
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform:translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform:opacity(100%);        
+        transform:translateY(0%);
+    }
+  }
+
+.listPage{
+    overflow: hidden;
 }
 
 

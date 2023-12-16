@@ -6,7 +6,7 @@ import '../css/list.css'
 const List = () => {
   const[data, setData]= useState([]);
   useEffect(()=>{
-    axiosInst.post('/admin/othdata/inelig')
+    axiosInst.post('/admin/othdataw/reg')
     .then(res=>setData(res.data))    
     .catch(err=>console.log(err))});
 
@@ -14,7 +14,7 @@ const List = () => {
     <Grid className='listPage'>
       <Grid container spacing={2}>
         <Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
-          <h1 className='contHead'>Ineligible Candidates</h1>        
+          <h1 className='contHead'>All Registered Candidates</h1>        
         </Grid>
       </Grid>
       <Grid container>
